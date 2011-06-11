@@ -11,13 +11,13 @@ public class LoginTimer {
 	public LoginTimer(final Player player, final ConfigBuffer cb)
 	{
 		this.player = player;
-		player.sendMessage(cb.Msg_Login);
+		player.sendMessage(cb.lv.Msg_Login);
 		RespawnTimer = cb.Plugin.getServer().getScheduler().scheduleSyncRepeatingTask(cb.Plugin,new Runnable() 
 		{
 			public void run() {
 				if (counter >= cb.TimeLogin)
 				{
-					player.kickPlayer(cb.Msg_kickLogin);
+					player.kickPlayer(cb.lv.Msg_kickLogin);
 					cb.Plugin.getServer().getScheduler().cancelTask(RespawnTimer);
 				}
 				else if(player.isOnline() == false || cb.PlayerList.contains(player))

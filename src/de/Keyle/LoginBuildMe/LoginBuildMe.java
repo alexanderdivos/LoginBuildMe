@@ -1,7 +1,6 @@
 package de.Keyle.LoginBuildMe;
 
 
-import java.io.File;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -52,59 +51,50 @@ public class LoginBuildMe extends JavaPlugin {
 		
 		config.load();
 		
-		if((new File(this.getDataFolder().getPath() + File.separator + "config.yml").exists()) == false)
-		{
-			config.setProperty("Enabled", false);
-			config.setProperty("DatabaseServer", "localhost");
-			config.setProperty("DatabasePort", "3306");
-			config.setProperty("Database", "myDatabase");
-			config.setProperty("DatabaseTabelName", "user");
-			config.setProperty("DatabaseUser", "root");
-			config.setProperty("DatabasePassword", "root");
-			config.setProperty("TimeRegister", 60); //In seconds
-			config.setProperty("TimeLogin", 60); //In seconds
-			config.setProperty("DatabaseFeldName", "username");
-			config.setProperty("DatabaseFeldPasswort", "password");
-			config.setProperty("DatabaseFeldBuild", "build");
-			  
-			config.setProperty("Msg_Register", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
-			config.setProperty("Msg_kickRegister", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
-			config.setProperty("Msg_Login", "Bitte loggen Sie sich ein. Syntax: /login meinpasswort.");
-			config.setProperty("Msg_kickLogin", "Sie haben sich innehalb der 60 Sekunden nicht eingeloggt.");
-			config.setProperty("Msg_LoginSuccess", "Login erfolgreich!");
-			config.setProperty("Msg_kickLoginFail", "Falsches Passwort eingegeben!");
-			config.setProperty("Msg_NoLogin", "Falsches Passwort eingegeben!");
-			config.setProperty("Msg_BuildPermit", "Sie sind nicht berechtigt Blöcke zu setzten/zerstören");
-			
-			config.save();
+		cb.dv.setProperty(config,"DatabaseServer", "localhost");
+		cb.dv.setProperty(config,"DatabasePort", "3306");
+		cb.dv.setProperty(config,"Database", "myDatabase");
+		cb.dv.setProperty(config,"DatabaseTabelName", "user");
+		cb.dv.setProperty(config,"DatabaseUser", "root");
+		cb.dv.setProperty(config,"DatabasePassword", "root");
+		cb.dv.setProperty(config,"TimeLogin", 60); //In seconds
+		cb.dv.setProperty(config,"DatabaseFeldName", "username");
+		cb.dv.setProperty(config,"DatabaseFeldPasswort", "password");
+		cb.dv.setProperty(config,"DatabaseFeldBuild", "build");
 		  
-			cb.log.info("You probably startet this plugin the first time. Please edit the configuration file in the your plugins folder!" );
-		}
-		else
-		{
-			cb.DatabaseServer = config.getString("DatabaseServer");
-			cb.DatabasePort = config.getString("DatabasePort");
-			cb.Database = config.getString("Database");
-			cb.TableName = config.getString("DatabaseTabelName");
-			cb.DatabaseUser = config.getString("DatabaseUser");
-			cb.DatabasePassword = config.getString("DatabasePassword");
+		cb.lv.setProperty(config,"Msg_Register", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
+		cb.lv.setProperty(config,"Msg_kickRegister", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
+		cb.lv.setProperty(config,"Msg_Login", "Bitte loggen Sie sich ein. Syntax: /login meinpasswort.");
+		cb.lv.setProperty(config,"Msg_kickLogin", "Sie haben sich innehalb der 60 Sekunden nicht eingeloggt.");
+		cb.lv.setProperty(config,"Msg_LoginSuccess", "Login erfolgreich!");
+		cb.lv.setProperty(config,"Msg_kickLoginFail", "Falsches Passwort eingegeben!");
+		cb.lv.setProperty(config,"Msg_NoLogin", "Falsches Passwort eingegeben!");
+		cb.lv.setProperty(config,"Msg_BuildPermit", "Sie sind nicht berechtigt Blöcke zu setzten/zerstören");
+		
+		config.save();
 
-			cb.DatabaseFeldName = config.getString("DatabaseFeldName", "username");
-			cb.DatabaseFeldPasswort = config.getString("DatabaseFeldPasswort", "password");
-			cb.DatabaseFeldBuild = config.getString("DatabaseFeldBuild", "build");
-			  
-			cb.TimeLogin = config.getInt("TimeLogin", 60);
-			  
-			cb.Msg_Register = config.getString("Msg_Register", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
-			cb.Msg_kickRegister = config.getString("Msg_kickRegister", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
-			cb.Msg_Login = config.getString("Msg_Login", "Bitte loggen Sie sich ein. Syntax: /login meinpasswort.");
-			cb.Msg_kickLogin = config.getString("Msg_kickLogin", "Sie haben sich innehalb der 60 Sekunden nicht eingeloggt.");
-			cb.Msg_LoginSuccess = config.getString("Msg_LoginSuccess", "Login erfolgreich!");
-			cb.Msg_kickLoginFail = config.getString("Msg_kickLoginFail", "Falsches Passwort eingegeben!");
-			cb.Msg_NoLogin = config.getString("Msg_NoLogin", "Falsches Passwort eingegeben!");
-			cb.Msg_BuildPermit = config.getString("Msg_BuildPermit", "Sie sind nicht berechtigt Blöcke zu setzten/zerstören");
-			
-		}
+		cb.dv.DatabaseServer = config.getString("DatabaseServer");
+		cb.dv.DatabasePort = config.getString("DatabasePort");
+		cb.dv.Database = config.getString("Database");
+		cb.dv.TableName = config.getString("DatabaseTabelName");
+		cb.dv.DatabaseUser = config.getString("DatabaseUser");
+		cb.dv.DatabasePassword = config.getString("DatabasePassword");
+
+		cb.dv.DatabaseFeldName = config.getString("DatabaseFeldName", "username");
+		cb.dv.DatabaseFeldPasswort = config.getString("DatabaseFeldPasswort", "password");
+		cb.dv.DatabaseFeldBuild = config.getString("DatabaseFeldBuild", "build");
+		  
+		cb.TimeLogin = config.getInt("TimeLogin", 60);
+		  
+		cb.lv.Msg_Register = config.getString("Msg_Register", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
+		cb.lv.Msg_kickRegister = config.getString("Msg_kickRegister", "Bitte registrieren Sie sich auf www.mc.sfe-hosting.de");
+		cb.lv.Msg_Login = config.getString("Msg_Login", "Bitte loggen Sie sich ein. Syntax: /login meinpasswort.");
+		cb.lv.Msg_kickLogin = config.getString("Msg_kickLogin", "Sie haben sich innehalb der 60 Sekunden nicht eingeloggt.");
+		cb.lv.Msg_LoginSuccess = config.getString("Msg_LoginSuccess", "Login erfolgreich!");
+		cb.lv.Msg_kickLoginFail = config.getString("Msg_kickLoginFail", "Falsches Passwort eingegeben!");
+		cb.lv.Msg_NoLogin = config.getString("Msg_NoLogin", "Falsches Passwort eingegeben!");
+		cb.lv.Msg_BuildPermit = config.getString("Msg_BuildPermit", "Sie sind nicht berechtigt Blöcke zu setzten/zerstören");
+
 		cb.con = new SQLConnection(cb);
 		if(cb.con == null)
 		{
@@ -129,17 +119,17 @@ public class LoginBuildMe extends JavaPlugin {
 			        try
 					{
 						statement = cb.con.connect.createStatement();
-						resultSet = statement.executeQuery("SELECT count(*) As Anzahl From "+cb.Database+"."+cb.TableName+" Where "+cb.DatabaseFeldName+" = " + "'" + player.getName()+ "' AND "+cb.DatabaseFeldPasswort+" = md5('"+ args[0] +"')");
+						resultSet = statement.executeQuery("SELECT count(*) As Anzahl From "+cb.dv.Database+"."+cb.dv.TableName+" Where "+cb.dv.DatabaseFeldName+" = " + "'" + player.getName()+ "' AND "+cb.dv.DatabaseFeldPasswort+" = md5('"+ args[0] +"')");
 						resultSet.next();
 						if(resultSet.getInt("Anzahl") == 1)
 						{
-							player.sendMessage(cb.Msg_LoginSuccess);
+							player.sendMessage(cb.lv.Msg_LoginSuccess);
 							cb.PlayerList.add(player);
 							if (CheckBuild(player))
 					    	{
 					    		cb.PlayerBuildList.add(player);
 					    	}
-						}else player.kickPlayer(cb.Msg_kickLoginFail);
+						}else player.kickPlayer(cb.lv.Msg_kickLoginFail);
 						statement.close();
 						resultSet.close();
 						return true;
@@ -151,7 +141,7 @@ public class LoginBuildMe extends JavaPlugin {
         		}
         		else
         		{
-        			player.sendMessage(cb.Msg_Login);
+        			player.sendMessage(cb.lv.Msg_Login);
         		}
 		    }
 		    return true;
@@ -164,9 +154,9 @@ public class LoginBuildMe extends JavaPlugin {
 		try
 		{
 			Statement statement = cb.con.connect.createStatement();
-			ResultSet resultSet = statement.executeQuery("select "+cb.DatabaseFeldBuild+" From "+cb.Database+"."+cb.TableName+" Where "+cb.DatabaseFeldName+" = " + "'" + player.getName()+ "'" );
+			ResultSet resultSet = statement.executeQuery("select "+cb.dv.DatabaseFeldBuild+" From "+cb.dv.Database+"."+cb.dv.TableName+" Where "+cb.dv.DatabaseFeldName+" = " + "'" + player.getName()+ "'" );
     		resultSet.next();
-    		if(resultSet.getInt(cb.DatabaseFeldBuild) == 1)
+    		if(resultSet.getInt(cb.dv.DatabaseFeldBuild) == 1)
     		{
     			return true;
     		}

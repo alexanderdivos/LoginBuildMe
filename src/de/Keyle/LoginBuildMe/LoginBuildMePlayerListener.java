@@ -15,6 +15,7 @@ public class LoginBuildMePlayerListener extends PlayerListener{
 	
 	private ConfigBuffer cb;
 	private Location from;
+	private Location to;
 	private Player player;
 	
 	    public LoginBuildMePlayerListener(ConfigBuffer cb) {
@@ -29,7 +30,7 @@ public class LoginBuildMePlayerListener extends PlayerListener{
    		{
     		if(!event.getMessage().toLowerCase().startsWith("/login"))
 	    	{
-	    		event.getPlayer().sendMessage(cb.Msg_Login);
+	    		event.getPlayer().sendMessage(cb.lv.Msg_Login);
 	    		event.setCancelled(true);
 	    	}
    		}
@@ -57,7 +58,12 @@ public class LoginBuildMePlayerListener extends PlayerListener{
 		if(!cb.PlayerList.contains(event.getPlayer()))
 		{
 	    	from = event.getFrom();
-	    	event.getPlayer().teleport(from);
+	    	to = event.getTo();
+	    	if(from.getX() != to.getX() || from.getY() != to.getY() || from.getZ() != to.getZ() )
+	    	{
+	    		event.getPlayer().teleport(from);
+	    		event.getPlayer().sendMessage(cb.lv.Msg_Login);
+	    	}
 		}
     }
     
@@ -67,7 +73,7 @@ public class LoginBuildMePlayerListener extends PlayerListener{
 		if(!cb.PlayerList.contains(event.getPlayer()))
 		{
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(cb.Msg_Login);
+			event.getPlayer().sendMessage(cb.lv.Msg_Login);
 		}
     }
     
@@ -77,7 +83,7 @@ public class LoginBuildMePlayerListener extends PlayerListener{
 		if(!cb.PlayerList.contains(event.getPlayer()))
 		{
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(cb.Msg_Login);
+			event.getPlayer().sendMessage(cb.lv.Msg_Login);
 		}
     }
 	    @Override
@@ -86,7 +92,6 @@ public class LoginBuildMePlayerListener extends PlayerListener{
 		if(!cb.PlayerList.contains(event.getPlayer()))
 		{
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(cb.Msg_Login);
 		}
     }
 }

@@ -20,7 +20,7 @@ public class SQLConnection {
 		}
 		try
 		{
-			connect = DriverManager.getConnection("jdbc:mysql://"+cb.DatabaseServer+":"+cb.DatabasePort+"/"+cb.Database+"?user="+cb.DatabaseUser+"&password="+cb.DatabasePassword+"&autoReconnect=true");
+			connect = DriverManager.getConnection("jdbc:mysql://"+cb.dv.DatabaseServer+":"+cb.dv.DatabasePort+"/"+cb.dv.Database+"?user="+cb.dv.DatabaseUser+"&password="+cb.dv.DatabasePassword+"&autoReconnect=true");
 		}
 		catch(Exception e)
 		{

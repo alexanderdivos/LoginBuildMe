@@ -19,12 +19,12 @@ public class LoginBuildMeBlockListener extends BlockListener {
 		if(cb.PlayerList.contains(event.getPlayer()) == false)
 		{
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(cb.Msg_Login);
+			event.getPlayer().sendMessage(cb.lv.Msg_Login);
 		}
 		if (cb.PlayerBuildList.contains(event.getPlayer()) == false)
 		{
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(cb.Msg_BuildPermit);
+			event.getPlayer().sendMessage(cb.lv.Msg_BuildPermit);
 		}
     }
     
@@ -34,12 +34,12 @@ public class LoginBuildMeBlockListener extends BlockListener {
 		if(cb.PlayerList.contains(event.getPlayer()) == false)
 		{
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(cb.Msg_Login);
+			event.getPlayer().sendMessage(cb.lv.Msg_Login);
 		}
 		if (cb.PlayerBuildList.contains(event.getPlayer()) == false)
 		{
 			event.setCancelled(true);
-			event.getPlayer().sendMessage(cb.Msg_BuildPermit);
+			event.getPlayer().sendMessage(cb.lv.Msg_BuildPermit);
 		}
     }
 }
