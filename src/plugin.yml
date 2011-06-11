@@ -1,0 +1,7 @@
+name: LoginBuildMe
+main: me.Keyle.LoginBuildMe.LoginBuildMe
+version: 0.1
+author: Keyle
+commands:
+  login:
+    description: Login for the server

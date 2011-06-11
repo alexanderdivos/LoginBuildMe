@@ -1,0 +1,23 @@
+Enabled: true
+
+Database: bukkit_loginbuildme
+DatabaseUser: root
+DatabasePassword: ''
+DatabaseServer: localhost
+DatabasePort: '3306'
+DatabaseTabelName: user
+
+DatabaseFeldName: username
+DatabaseFeldBuild: build
+DatabaseFeldPasswort: password
+
+LoginTime: 60
+
+Msg_BuildPermit: Sie sind nicht berechtigt Blöcke zu setzten/zerstören
+Msg_Register: Bitte registrieren Sie sich auf www.mc.sfe-hosting.de
+Msg_Login: 'Bitte loggen Sie sich ein. Syntax: /login meinpasswort.'
+Msg_kickLoginFail: Falsches Passwort eingegeben!
+Msg_kickLogin: Sie haben sich innehalb der 60 Sekunden nicht eingeloggt.
+Msg_kickRegister: Bitte registrieren Sie sich auf www.mc.sfe-hosting.de
+Msg_NoLogin: Falsches Passwort eingegeben!
+Msg_LoginSuccess: Login erfolgreich!
