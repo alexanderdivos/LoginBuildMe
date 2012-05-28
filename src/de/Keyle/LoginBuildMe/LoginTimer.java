@@ -1,8 +1,10 @@
+
 package de.Keyle.LoginBuildMe;
 
 import org.bukkit.entity.Player;
 
-public class LoginTimer {
+public class LoginTimer
+{
 
 	private int counter = 0;
 	public Player player;
@@ -12,21 +14,23 @@ public class LoginTimer {
 	{
 		this.player = player;
 		player.sendMessage(cb.lv.Msg_Login);
-		RespawnTimer = cb.Plugin.getServer().getScheduler().scheduleSyncRepeatingTask(cb.Plugin,new Runnable() 
+		RespawnTimer = cb.Plugin.getServer().getScheduler().scheduleSyncRepeatingTask(cb.Plugin, new Runnable()
 		{
-			public void run() {
+			public void run()
+			{
 				if (counter >= cb.TimeLogin)
 				{
 					player.kickPlayer(cb.lv.Msg_kickLogin);
 					cb.Plugin.getServer().getScheduler().cancelTask(RespawnTimer);
 				}
-				else if(player.isOnline() == false || cb.PlayerList.contains(player))
+				else if (!player.isOnline() || cb.PlayerList.contains(player))
 				{
 					cb.Plugin.getServer().getScheduler().cancelTask(RespawnTimer);
 				}
-				else counter++;
+				else
+					counter++;
 			}
-		}, 0L,20L);
+		}, 0L, 20L);
 	}
-	
+
 }

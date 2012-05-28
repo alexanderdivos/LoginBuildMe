@@ -1,6 +1,6 @@
 name: LoginBuildMe
 main: de.Keyle.LoginBuildMe.LoginBuildMe
-version: 0.2
+version: 0.3
 author: Keyle
 commands:
   login:
